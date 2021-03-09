@@ -1,0 +1,109 @@
+<!doctype html>
+<!-- doctype informa ao agente de usuario a versão do html que deve ser renderizada-->
+<html lang="pt-br">
+    <head>
+        <title> Teste </title>
+        <meta charset="utf-8">
+        <meta name="author" content="Alexandre">
+        <meta name="description" content="lista de documentos">
+        <meta name="keywords" content="html5, tecnologia">
+    </head> 
+    <body>
+      <section style="margin-bottom: 10px;">
+        <span>Primeiro Exercício: </span>
+        <input type="number" id="numero1">
+        <input type="number" id="numero2">
+        <button onclick="exerciseOne(numero1.value, numero2.value)">Click me</button>
+      </section>
+      <section style="margin-bottom: 10px;">
+        <span>Segundo Exercício: </span>
+        <input type="number" id="secondNumber1">
+        <button onclick="exerciseTwo(secondNumber1.value)">Click me</button>
+      </section>
+      <section style="margin-bottom: 10px;">
+        <span>Terceiro Exercício: </span>
+        <button onclick="exerciseThree(obj)">Click me</button>
+      </section>
+      <section style="margin-bottom: 10px;">
+        <span>Quarto Exercício: </span>
+        <button onclick="exerciseFour(obj)">Click me</button>
+      </section>
+      <section style="margin-bottom: 10px;">
+        <span>Quinto Exercício: </span>
+        <input type="text" id="cep">
+        <button onclick="exerciseFive(cep.value)">Click me</button>
+      </section>
+    </body>
+</html>
+
+<script>
+
+  let obj =  ["Alan", "Joao", "vinicius", "rodrigo"]
+
+  function exerciseOne(a, b) {
+
+    if(isNaN(parseInt(a)) || isNaN(parseInt(b))) {
+      return console.log("Parâmetros inválidos.")
+    }
+
+    console.log(a,b)
+
+    let result = {
+      soma: parseInt(a) + parseInt(b),
+      multiplicacao: a * b,
+      subtracao: a - b,
+      divisao: a / b
+    }
+
+    return console.log(result);
+  }
+  
+  function exerciseTwo(a) {
+    let json = { 
+      "funcionarios" : ["Alan", "Joao", "vinicius", "rodrigo"] 
+    } 
+
+    if (parseInt(a) >= 0 && parseInt(a) <= 3) {
+      return console.log(json.funcionarios[a])
+    } else if (a == "" || a == undefined) {
+      return console.log("Não se pode verificar valores vazios.")
+    }
+
+    return console.log("Numero deve estar entre 0 e 3. Numero digitado:  " + a)
+  }
+
+  function exerciseThree(obj) {
+    if(Array.isArray(obj)) {
+      obj.forEach((value, i) => {
+        return console.log(obj[i])
+      })
+    } else {
+     return console.log("Parâmetros inválidos")
+    }
+  }
+
+  function exerciseFour(obj) {
+    if(Array.isArray(obj)) {
+      obj.forEach((value, i) => {
+        let str = `-${i}`
+       obj[i] += str
+      })
+    } else {
+     return console.log("Parâmetros inválidos")
+    }
+    return console.log(obj)
+  }
+
+  async function exerciseFive(cep) {
+    try {
+      await fetch(`http://viacep.com.br/ws/${cep}/json/`)
+      .then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      return console.log(data)
+    });
+    } catch (error) {
+      return console.log("CEP NÃO ENCONTRADO", error.message)
+    }
+  }
+</script>

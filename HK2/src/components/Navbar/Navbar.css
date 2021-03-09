@@ -1,0 +1,38 @@
+.navbar{
+  background-color: #2991D6;
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  width: 100%;
+  max-width: 992px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+nav .logo {
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+nav .nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 20%;
+}
+
+nav .nav-links a {
+  font-size: 18px;
+  font-weight: normal;
+  cursor: pointer;
+
+}
+
+nav .nav-links a:hover {
+  color: var(--gray-line);
+}

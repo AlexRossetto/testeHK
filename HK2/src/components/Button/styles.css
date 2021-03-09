@@ -1,0 +1,11 @@
+.btn{
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #616bee;
+  color: white;
+}
+
+.btn-red{
+  background-color: var(--red)
+}

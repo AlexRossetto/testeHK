@@ -1,0 +1,84 @@
+.flex-container {
+  height: 100vh;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-container section {
+  padding: 1.3rem;
+  background: white;
+  border-radius: 10px;
+}
+
+.flex-container section h2 {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 0 40px;
+}
+
+.form-group {
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-group input {
+  outline: none;
+  border-width: 0 0 2px 0;
+  border-color: #b9b9b9;
+  transition: border-color 1s;
+  font-weight: 400;
+  background: inherit;
+}
+
+.form-group input:focus {
+  border-color: #000
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+}
+
+.btn-home {
+  margin-top: 10px;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 6rem;
+  transition: filter 0.2s;
+  outline: none;
+}
+
+.btn-home {
+  background: var(--green);
+}
+
+.btn-home:hover {
+  filter: brightness(0.9)
+}
+
+.btn-home:disabled {
+  background: var(--white);
+  color: var(--text);
+  cursor: not-allowed;
+}
+
+.form-footer{
+  display: flex;
+    justify-content: space-between;
+}
+
+.warning {
+  margin-top: 0.8rem;
+  color: var(--red);
+}

@@ -1,0 +1,38 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.644);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container{
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  background-color: var(--white);
+  padding: 60px 60px;
+  border-radius: 5px;
+}
+
+.modal-closer{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.modal-title, .modal-subtitle{
+  text-align: center;
+}
+
+.modal-title{
+  font-size: 30px;
+  margin-bottom: 15px;
+}

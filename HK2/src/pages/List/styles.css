@@ -1,0 +1,75 @@
+.btn-delete {
+  margin-top: 10px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 3rem;
+  transition: filter 0.2s;
+  outline: none;
+}
+
+.btn-delete{
+  background: var(--red);
+}
+
+.btn-delete:hover {
+  filter: brightness(0.9)
+}
+
+.btn-edit {
+  margin-top: 10px;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  width: 3rem;
+  transition: filter 0.2s;
+  outline: none;
+}
+
+.btn-edit{
+  background: rgb(255, 204, 102);
+}
+
+.btn-edit:hover {
+  filter: brightness(0.9)
+}
+
+.edit-form button{
+  margin-top: 30px;
+}
+
+.buttons{
+  width: 30%;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+thead{
+  color: rgb(24, 24, 24)
+}
+
+tbody tr{
+  height: 75px;
+}
+
+tbody tr:not(:last-child){
+  border-bottom: 1px solid #80808030;
+}
