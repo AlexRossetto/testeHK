@@ -16,7 +16,7 @@ export default function Home() {
   }, [user])
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("users")).length == 5) {
+    if (JSON.parse(localStorage.getItem("users")) && JSON.parse(localStorage.getItem("users")).length == 5) {
       setIsAllowed(false);
     }
   }, [])
