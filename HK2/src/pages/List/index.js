@@ -41,7 +41,12 @@ export default function List() {
     setUsers(editedUsers);
     localStorage.setItem("users", JSON.stringify(editedUsers))
     setOpenEdit(false)
-  }  
+  }
+  
+  function phoneMask (a) {
+    let num = `(${a.substring(0, 2)})${a.substring(2, 7)}-${a.substring(7, a.length)}`;
+    return num
+  }
 
   return(
     <div className="flex-container">
@@ -60,7 +65,7 @@ export default function List() {
                 <tr key={user.id}>  
                   <td>{user.nome}</td>      
                   <td>{user.email}</td>      
-                  <td>{user.phone}</td>  
+                  <td>{phoneMask(user.phone)}</td>  
                   <td><button onClick={() => openModalDestroy(user.id)} className="btn-delete"><FaTrashAlt /></button> </td>   
                   <td><button onClick={() => openModalEdit(user.id)} className="btn-edit"><FaPen /></button> </td>
                 </tr>
@@ -77,6 +82,19 @@ export default function List() {
 
 const EditUserModal = ({ toggleModal, user, edit }) => {
   const [newUser, setNewUser] = React.useState(user)
+  const [button, setButton] = useState(true);
+
+  useEffect(() => {
+    if (newUser.nome && newUser.email && newUser.phone) {
+      if(newUser.phone.length == 11 && !isNaN(newUser.phone)) {
+        setButton(false)
+      } else {
+        setButton(true)
+      }
+    } else {
+      setButton(true);
+    }
+  }, [newUser])
 
   return(
       <Modal title="Editar usuário" closeModal={toggleModal}> 
@@ -93,10 +111,10 @@ const EditUserModal = ({ toggleModal, user, edit }) => {
             </div>
             <div className="form-group">
               <label htmlFor="contact">*Telefone Celular :</label>
-              <input onChange={e => setNewUser({...newUser,
+              <input minLength="11" maxLength="11" onChange={e => setNewUser({...newUser,
               phone: e.target.value})} name="contact" type="text" value={newUser.phone} />
             </div> 
-            <Button action={() => edit(newUser)}>Editar</Button>
+            <Button disabled={button} action={() => edit(newUser)}>Editar</Button>
           </form>
       </Modal>
   )

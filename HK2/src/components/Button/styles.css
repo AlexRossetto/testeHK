@@ -6,6 +6,12 @@
   color: white;
 }
 
+.btn:disabled {
+  background: var(--white);
+  color: var(--text);
+  cursor: not-allowed;
+}
+
 .btn-red{
   background-color: var(--red)
 }

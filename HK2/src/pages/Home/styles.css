@@ -35,6 +35,10 @@
   background: inherit;
 }
 
+.phoneInput {
+  -webkit-appearance: none;
+}
+
 .form-group input:focus {
   border-color: #000
 }

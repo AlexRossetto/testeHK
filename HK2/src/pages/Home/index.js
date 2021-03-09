@@ -9,7 +9,11 @@ export default function Home() {
 
   useEffect(() => {
     if (user.nome && user.email && user.phone && isAllowed) {
-      setButton(false)
+      if(user.phone.length == 11 && !isNaN(user.phone)) {
+        setButton(false)
+      } else {
+        setButton(true)
+      }
     } else {
       setButton(true);
     }
@@ -60,8 +64,8 @@ export default function Home() {
             })} name="email" type="email" />
           </div>
           <div className="form-group">
-            <label htmlFor="contact">*Telefone Celular :</label>
-            <input onChange={e => setUser({
+            <label htmlFor="contact">*Telefone Celular (com DDD) :</label>
+            <input minLength="11" maxLength="11" onChange={e =>setUser({
               ...user,
               phone: e.target.value
             })} name="contact" type="text" />
